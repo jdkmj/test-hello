@@ -4,14 +4,14 @@ steps:
       [
         'build',
         '-t',
-        'gcr.io/beaming-key-350612/test-project:$SHORT_SHA',
+        'gcr.io/beaming-key-350612/test-hello:$SHORT_SHA',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [
         'push',
-        'gcr.io/beaming-key-350612/test-project:$SHORT_SHA',
+        'gcr.io/beaming-key-350612/test-hello:$SHORT_SHA',
       ]
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
@@ -19,7 +19,7 @@ steps:
         'beta',
         'run',
         'deploy',
-        'test-projec',
-        '--image=gcr.io/beaming-key-350612/test-project:$SHORT_SHA',
+        'test-hello',
+        '--image=gcr.io/beaming-key-350612/test-hello:$SHORT_SHA',
         '--region=us-central1',
       ]
